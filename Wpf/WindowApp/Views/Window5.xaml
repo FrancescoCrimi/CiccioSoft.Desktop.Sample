@@ -1,0 +1,96 @@
+﻿<Window x:Class="Wpf.WindowApp.Views.Window5"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf.WindowApp.Views"
+        xmlns:viewmodels="clr-namespace:Wpf.WindowApp.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewmodels:Window5ViewModel}"
+        mc:Ignorable="d"
+        Title="Window 5"
+        Height="360"
+        Width="480"
+        FontSize="16">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Focusable="False">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit"/>
+            </MenuItem>
+            <MenuItem Header="Window">
+                <MenuItem Header="Main Window" Command="{Binding OpenWindowCommand, Mode=OneWay}" CommandParameter="{x:Type local:MainWindow}"/>
+                <MenuItem Header="Window 1" Command="{Binding OpenWindowCommand, Mode=OneWay}" CommandParameter="{x:Type local:Window1}"/>
+                <MenuItem Header="Window 2" Command="{Binding OpenWindowCommand, Mode=OneWay}" CommandParameter="{x:Type local:Window2}"/>
+                <MenuItem Header="Window 3" Command="{Binding OpenWindowCommand, Mode=OneWay}" CommandParameter="{x:Type local:Window3}"/>
+                <MenuItem Header="Window 4" Command="{Binding OpenWindowCommand, Mode=OneWay}" CommandParameter="{x:Type local:Window4}"/>
+                <MenuItem Header="Window 5" Command="{Binding OpenWindowCommand, Mode=OneWay}" CommandParameter="{x:Type local:Window5}"/>
+            </MenuItem>
+            <MenuItem Header="Dialog">
+                <MenuItem Header="Main Window" Command="{Binding OpenDialogCommand, Mode=OneWay}" CommandParameter="{x:Type local:MainWindow}"/>
+                <MenuItem Header="Window 1" Command="{Binding OpenDialogCommand, Mode=OneWay}" CommandParameter="{x:Type local:Window1}"/>
+                <MenuItem Header="Window 2" Command="{Binding OpenDialogCommand, Mode=OneWay}" CommandParameter="{x:Type local:Window2}"/>
+                <MenuItem Header="Window 3" Command="{Binding OpenDialogCommand, Mode=OneWay}" CommandParameter="{x:Type local:Window3}"/>
+                <MenuItem Header="Window 4" Command="{Binding OpenDialogCommand, Mode=OneWay}" CommandParameter="{x:Type local:Window4}"/>
+                <MenuItem Header="Window 5" Command="{Binding OpenDialogCommand, Mode=OneWay}" CommandParameter="{x:Type local:Window5}"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="30*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Window 5" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="50*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Id" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding MyId, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="MyService" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding MyModelId, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+
+            <GroupBox Header="Open Window" Grid.Row="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Window 4" Command="{Binding OpenWindowCommand, Mode=OneWay}" CommandParameter="{x:Type local:Window4}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button Content="Main Window" Command="{Binding OpenWindowCommand, Mode=OneWay}" CommandParameter="{x:Type local:MainWindow}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="Open Dialog" Grid.Row="3">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Window 4" Command="{Binding OpenDialogCommand, Mode=OneWay}" CommandParameter="{x:Type local:Window4}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button Content="Main Window" Command="{Binding OpenDialogCommand, Mode=OneWay}" CommandParameter="{x:Type local:MainWindow}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+                </Grid>
+            </GroupBox>
+
+        </Grid>
+
+    </Grid>
+
+</Window>
