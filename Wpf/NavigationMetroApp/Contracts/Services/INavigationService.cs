@@ -5,7 +5,7 @@ namespace Wpf.NavigationMetroApp.Contracts.Services
 {
     public interface INavigationService
     {
-        event EventHandler<string> Navigated;
+        event EventHandler Navigated;
 
         bool CanGoBack { get; }
 

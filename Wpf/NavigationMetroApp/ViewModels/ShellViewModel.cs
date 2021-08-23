@@ -45,7 +45,7 @@ namespace Wpf.NavigationMetroApp.ViewModels
             => _menuItemCommand ??= new RelayCommand<Type>(type
                 => _navigationService.NavigateTo(type, null, true));
 
-        private void OnNavigated(object sender, string viewModelName)
+        private void OnNavigated(object sender, EventArgs e)
         {
             GoBackCommand.OnCanExecuteChanged();
         }

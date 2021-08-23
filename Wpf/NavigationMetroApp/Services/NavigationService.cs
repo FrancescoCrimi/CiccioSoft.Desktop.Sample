@@ -26,9 +26,9 @@ namespace Wpf.NavigationMetroApp.Services
             logger.LogDebug("Created: " + GetHashCode().ToString());
         }
 
-        public bool CanGoBack => _frame.CanGoBack;
+        public event EventHandler Navigated;
 
-        public event EventHandler<string> Navigated;
+        public bool CanGoBack => _frame.CanGoBack;
 
         public void GoBack()
         {
@@ -105,7 +105,7 @@ namespace Wpf.NavigationMetroApp.Services
                 {
                     navigationAware.OnNavigatedTo(e.ExtraData);
                 }
-                Navigated?.Invoke(sender, dataContext.GetType().FullName);
+                Navigated?.Invoke(sender, new EventArgs());
             }
         }
 
