@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Windows.Forms;
 
-namespace WinForm.WindowApp.Services
+namespace FormApp.Services
 {
     public class DialogService : IDisposable
     {

@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinForm.WindowApp.Hosting
+namespace FormApp.Hosting
 {
     public class FormHostedService<TForm> : IHostedService, IDisposable where TForm : Form
     {

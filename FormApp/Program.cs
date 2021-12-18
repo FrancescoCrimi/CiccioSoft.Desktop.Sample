@@ -2,11 +2,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading.Tasks;
-using WinForm.WindowApp.Hosting;
-using WinForm.WindowApp.Services;
-using WinForm.WindowApp.Views;
+using FormApp.Hosting;
+using FormApp.Services;
+using FormApp.Views;
 
-namespace WinForm.WindowApp
+namespace FormApp
 {
     public static class Program
     {

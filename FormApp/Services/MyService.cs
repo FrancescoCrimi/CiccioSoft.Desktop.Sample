@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
 
-namespace WinForm.WindowApp.Services
+namespace FormApp.Services
 {
     public class MyService : IDisposable
     {

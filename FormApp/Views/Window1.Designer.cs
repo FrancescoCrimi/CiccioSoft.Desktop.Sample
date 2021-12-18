@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace WinForm.WindowApp.Views
+namespace FormApp.Views
 {
-    partial class Window2
+    partial class Window1
     {
         /// <summary>
         /// Required designer variable.
@@ -36,13 +36,13 @@ namespace WinForm.WindowApp.Views
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.window1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.window2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.window3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.window4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.window5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dialogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainDialogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dialog1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dialog2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dialog3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dialog4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dialog5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,7 +104,7 @@ namespace WinForm.WindowApp.Views
             // 
             this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainWindowToolStripMenuItem,
-            this.window1ToolStripMenuItem,
+            this.window2ToolStripMenuItem,
             this.window3ToolStripMenuItem,
             this.window4ToolStripMenuItem,
             this.window5ToolStripMenuItem});
@@ -118,11 +118,11 @@ namespace WinForm.WindowApp.Views
             this.mainWindowToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.mainWindowToolStripMenuItem.Text = "Main Window";
             // 
-            // window1ToolStripMenuItem
+            // window2ToolStripMenuItem
             // 
-            this.window1ToolStripMenuItem.Name = "window1ToolStripMenuItem";
-            this.window1ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.window1ToolStripMenuItem.Text = "Window 1";
+            this.window2ToolStripMenuItem.Name = "window2ToolStripMenuItem";
+            this.window2ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.window2ToolStripMenuItem.Text = "Window 2";
             // 
             // window3ToolStripMenuItem
             // 
@@ -149,7 +149,7 @@ namespace WinForm.WindowApp.Views
             // 
             this.dialogToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainDialogToolStripMenuItem,
-            this.dialog1ToolStripMenuItem,
+            this.dialog2ToolStripMenuItem,
             this.dialog3ToolStripMenuItem,
             this.dialog4ToolStripMenuItem,
             this.dialog5ToolStripMenuItem});
@@ -163,11 +163,11 @@ namespace WinForm.WindowApp.Views
             this.mainDialogToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.mainDialogToolStripMenuItem.Text = "Main Window";
             // 
-            // dialog1ToolStripMenuItem
+            // dialog2ToolStripMenuItem
             // 
-            this.dialog1ToolStripMenuItem.Name = "dialog1ToolStripMenuItem";
-            this.dialog1ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.dialog1ToolStripMenuItem.Text = "Window 1";
+            this.dialog2ToolStripMenuItem.Name = "dialog2ToolStripMenuItem";
+            this.dialog2ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.dialog2ToolStripMenuItem.Text = "Window 2";
             // 
             // dialog3ToolStripMenuItem
             // 
@@ -217,7 +217,7 @@ namespace WinForm.WindowApp.Views
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 30);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Window 2";
+            this.label3.Text = "Window 1";
             // 
             // tableLayoutPanel3
             // 
@@ -340,7 +340,7 @@ namespace WinForm.WindowApp.Views
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(70, 31);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Form 3";
+            this.button2.Text = "Form 2";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -349,11 +349,11 @@ namespace WinForm.WindowApp.Views
             this.button1.AutoSize = true;
             this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(79, 3);
+            this.button1.Location = new System.Drawing.Point(67, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 31);
+            this.button1.Size = new System.Drawing.Size(95, 31);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Form 1";
+            this.button1.Text = "Form Shell";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -392,11 +392,11 @@ namespace WinForm.WindowApp.Views
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button3.AutoSize = true;
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.Location = new System.Drawing.Point(79, 3);
+            this.button3.Location = new System.Drawing.Point(67, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(70, 31);
+            this.button3.Size = new System.Drawing.Size(95, 31);
             this.button3.TabIndex = 0;
-            this.button3.Text = "Form 1";
+            this.button3.Text = "Form Shell";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -408,10 +408,10 @@ namespace WinForm.WindowApp.Views
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(70, 31);
             this.button4.TabIndex = 1;
-            this.button4.Text = "Form 3";
+            this.button4.Text = "Form 2";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // Window2
+            // Window1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -419,8 +419,8 @@ namespace WinForm.WindowApp.Views
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Name = "Window2";
-            this.Text = "Window 2";
+            this.Name = "Window1";
+            this.Text = "Window 1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -450,13 +450,14 @@ namespace WinForm.WindowApp.Views
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem window1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mainWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem window2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem window3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem window4ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem window5ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dialogToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dialog1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mainDialogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dialog2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dialog3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dialog4ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dialog5ToolStripMenuItem;
@@ -477,6 +478,5 @@ namespace WinForm.WindowApp.Views
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ToolStripMenuItem mainDialogToolStripMenuItem;
     }
 }

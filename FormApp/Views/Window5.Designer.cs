@@ -1,16 +1,16 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace WinForm.WindowApp.Views
+namespace FormApp.Views
 {
-    partial class MainWindow
+    partial class Window5
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -26,39 +26,39 @@ namespace WinForm.WindowApp.Views
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.window1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.window2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.window3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.window4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.window5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dialogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainDialogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dialog1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dialog2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dialog3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dialog4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dialog5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
@@ -74,53 +74,6 @@ namespace WinForm.WindowApp.Views
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.AutoSize = true;
-            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(308, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(70, 31);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Form 1";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 21);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "MyService:";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(4, 7);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 21);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Id:";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(158, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 30);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Main Window";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -130,7 +83,7 @@ namespace WinForm.WindowApp.Views
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(464, 24);
-            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
@@ -150,104 +103,89 @@ namespace WinForm.WindowApp.Views
             // windowToolStripMenuItem
             // 
             this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mainWindowToolStripMenuItem,
             this.window1ToolStripMenuItem,
             this.window2ToolStripMenuItem,
             this.window3ToolStripMenuItem,
-            this.window4ToolStripMenuItem,
-            this.window5ToolStripMenuItem});
+            this.window4ToolStripMenuItem});
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.windowToolStripMenuItem.Text = "Window";
             // 
+            // mainWindowToolStripMenuItem
+            // 
+            this.mainWindowToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mainWindowToolStripMenuItem.Name = "mainWindowToolStripMenuItem";
+            this.mainWindowToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.mainWindowToolStripMenuItem.Text = "Main Window";
+            // 
             // window1ToolStripMenuItem
             // 
             this.window1ToolStripMenuItem.Name = "window1ToolStripMenuItem";
-            this.window1ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.window1ToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.window1ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.window1ToolStripMenuItem.Text = "Window 1";
             // 
             // window2ToolStripMenuItem
             // 
             this.window2ToolStripMenuItem.Name = "window2ToolStripMenuItem";
-            this.window2ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.window2ToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.window2ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.window2ToolStripMenuItem.Text = "Window 2";
             // 
             // window3ToolStripMenuItem
             // 
             this.window3ToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.window3ToolStripMenuItem.Name = "window3ToolStripMenuItem";
-            this.window3ToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.window3ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.window3ToolStripMenuItem.Text = "Window 3";
             // 
             // window4ToolStripMenuItem
             // 
             this.window4ToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.window4ToolStripMenuItem.Name = "window4ToolStripMenuItem";
-            this.window4ToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.window4ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.window4ToolStripMenuItem.Text = "Window 4";
-            // 
-            // window5ToolStripMenuItem
-            // 
-            this.window5ToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.window5ToolStripMenuItem.Name = "window5ToolStripMenuItem";
-            this.window5ToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.window5ToolStripMenuItem.Text = "Window 5";
             // 
             // dialogToolStripMenuItem
             // 
             this.dialogToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mainDialogToolStripMenuItem,
             this.dialog1ToolStripMenuItem,
             this.dialog2ToolStripMenuItem,
             this.dialog3ToolStripMenuItem,
-            this.dialog4ToolStripMenuItem,
-            this.dialog5ToolStripMenuItem});
+            this.dialog4ToolStripMenuItem});
             this.dialogToolStripMenuItem.Name = "dialogToolStripMenuItem";
             this.dialogToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.dialogToolStripMenuItem.Text = "Dialog";
             // 
+            // mainDialogToolStripMenuItem
+            // 
+            this.mainDialogToolStripMenuItem.Name = "mainDialogToolStripMenuItem";
+            this.mainDialogToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.mainDialogToolStripMenuItem.Text = "Main Window";
+            // 
             // dialog1ToolStripMenuItem
             // 
             this.dialog1ToolStripMenuItem.Name = "dialog1ToolStripMenuItem";
-            this.dialog1ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.dialog1ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.dialog1ToolStripMenuItem.Text = "Window 1";
             // 
             // dialog2ToolStripMenuItem
             // 
             this.dialog2ToolStripMenuItem.Name = "dialog2ToolStripMenuItem";
-            this.dialog2ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.dialog2ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.dialog2ToolStripMenuItem.Text = "Window 2";
             // 
             // dialog3ToolStripMenuItem
             // 
             this.dialog3ToolStripMenuItem.Name = "dialog3ToolStripMenuItem";
-            this.dialog3ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.dialog3ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.dialog3ToolStripMenuItem.Text = "Window 3";
             // 
             // dialog4ToolStripMenuItem
             // 
             this.dialog4ToolStripMenuItem.Name = "dialog4ToolStripMenuItem";
-            this.dialog4ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.dialog4ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.dialog4ToolStripMenuItem.Text = "Window 4";
-            // 
-            // dialog5ToolStripMenuItem
-            // 
-            this.dialog5ToolStripMenuItem.Name = "dialog5ToolStripMenuItem";
-            this.dialog5ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.dialog5ToolStripMenuItem.Text = "Window 5";
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.AutoSize = true;
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(79, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Form 5";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -268,7 +206,18 @@ namespace WinForm.WindowApp.Views
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(464, 237);
-            this.tableLayoutPanel1.TabIndex = 9;
+            this.tableLayoutPanel1.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(176, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 30);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Window 5";
             // 
             // tableLayoutPanel3
             // 
@@ -300,6 +249,18 @@ namespace WinForm.WindowApp.Views
             this.flowLayoutPanel1.Size = new System.Drawing.Size(140, 35);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(4, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(26, 21);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Id:";
+            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(37, 3);
@@ -318,6 +279,17 @@ namespace WinForm.WindowApp.Views
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(197, 35);
             this.flowLayoutPanel2.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(3, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 21);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "MyService:";
             // 
             // textBox2
             // 
@@ -357,6 +329,32 @@ namespace WinForm.WindowApp.Views
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(458, 37);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.AutoSize = true;
+            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(296, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 31);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Shell Form";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.AutoSize = true;
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(79, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(70, 31);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Form 4";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -398,7 +396,7 @@ namespace WinForm.WindowApp.Views
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(70, 31);
             this.button3.TabIndex = 0;
-            this.button3.Text = "Form 5";
+            this.button3.Text = "Form 4";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -406,14 +404,14 @@ namespace WinForm.WindowApp.Views
             this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button4.AutoSize = true;
             this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button4.Location = new System.Drawing.Point(308, 3);
+            this.button4.Location = new System.Drawing.Point(296, 3);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(70, 31);
+            this.button4.Size = new System.Drawing.Size(95, 31);
             this.button4.TabIndex = 1;
-            this.button4.Text = "Form 1";
+            this.button4.Text = "Shell Form";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // MainWindow
+            // Window5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -421,9 +419,8 @@ namespace WinForm.WindowApp.Views
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "MainWindow";
-            this.Text = "Main Window";
+            this.Name = "Window5";
+            this.Text = "Window 5";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -448,38 +445,38 @@ namespace WinForm.WindowApp.Views
         }
 
         #endregion
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dialogToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ToolStripMenuItem window1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem window2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem window3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem window4ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem window5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dialogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dialog1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dialog2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dialog3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dialog4ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dialog5ToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ToolStripMenuItem mainWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mainDialogToolStripMenuItem;
     }
 }
-

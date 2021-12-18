@@ -2,7 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows.Forms;
 
-namespace WinForm.WindowApp.Hosting
+namespace FormApp.Hosting
 {
     public static class FormHostBuilderExtensions
     {
