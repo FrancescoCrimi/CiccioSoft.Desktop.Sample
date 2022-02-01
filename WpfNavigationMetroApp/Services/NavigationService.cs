@@ -3,8 +3,8 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using WpfNavigationMetroApp.Contracts.Services;
-using WpfNavigationMetroApp.Contracts.ViewModels;
+using WpfNavigationMetroApp.Contracts;
+using WpfNavigationMetroApp.Helpers;
 
 namespace WpfNavigationMetroApp.Services
 {

@@ -1,13 +1,14 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Windows.Input;
-using WpfNavigationMetroApp.Contracts.Services;
-using WpfNavigationMetroApp.Helpers;
+using WpfNavigationMetroApp.Contracts;
 using WpfNavigationMetroApp.Views;
 
 namespace WpfNavigationMetroApp.ViewModels
 {
-    public class ShellViewModel : Observable, IDisposable
+    public class ShellViewModel : ObservableRecipient, IDisposable
     {
         private readonly ILogger<ShellViewModel> logger;
         private readonly INavigationService _navigationService;
@@ -47,7 +48,8 @@ namespace WpfNavigationMetroApp.ViewModels
 
         private void OnNavigated(object sender, EventArgs e)
         {
-            GoBackCommand.OnCanExecuteChanged();
+            //GoBackCommand.OnCanExecuteChanged();
+            GoBackCommand.NotifyCanExecuteChanged();
         }
 
         public void Dispose()

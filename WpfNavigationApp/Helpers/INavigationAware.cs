@@ -1,4 +1,4 @@
-﻿namespace WpfNavigationApp.Contracts.ViewModels
+﻿namespace WpfNavigationApp.Helpers
 {
     public interface INavigationAware
     {

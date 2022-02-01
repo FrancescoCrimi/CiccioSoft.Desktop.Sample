@@ -1,12 +1,13 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Windows.Input;
-using WpfApp.Helpers;
 using WpfApp.Services;
 
 namespace WpfApp.ViewModels
 {
-    public class MainWindowViewModel : Observable, IDisposable
+    public class MainWindowViewModel : ObservableRecipient, IDisposable
     {
         private readonly ILogger<MainWindowViewModel> logger;
         private readonly MyService myService;

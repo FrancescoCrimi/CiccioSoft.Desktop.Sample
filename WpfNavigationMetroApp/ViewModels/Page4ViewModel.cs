@@ -1,15 +1,16 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Windows.Input;
-using WpfNavigationMetroApp.Contracts.Services;
-using WpfNavigationMetroApp.Contracts.ViewModels;
+using WpfNavigationMetroApp.Contracts;
 using WpfNavigationMetroApp.Helpers;
 using WpfNavigationMetroApp.Services;
 using WpfNavigationMetroApp.Views;
 
 namespace WpfNavigationMetroApp.ViewModels
 {
-    public class Page4ViewModel : Observable, INavigationAware, IDisposable
+    public class Page4ViewModel : ObservableRecipient, INavigationAware, IDisposable
     {
         private readonly ILogger<Page4ViewModel> logger;
         private readonly INavigationService navigationService;

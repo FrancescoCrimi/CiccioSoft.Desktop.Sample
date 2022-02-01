@@ -1,5 +1,5 @@
 ﻿using MahApps.Metro.Controls;
-using WpfNavigationMetroApp.Contracts.Services;
+using WpfNavigationMetroApp.Contracts;
 using WpfNavigationMetroApp.ViewModels;
 
 namespace WpfNavigationMetroApp.Views

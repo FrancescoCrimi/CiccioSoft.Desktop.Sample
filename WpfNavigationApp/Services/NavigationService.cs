@@ -3,8 +3,8 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using WpfNavigationApp.Contracts.Services;
-using WpfNavigationApp.Contracts.ViewModels;
+using WpfNavigationApp.Contracts;
+using WpfNavigationApp.Helpers;
 
 namespace WpfNavigationApp.Services
 {

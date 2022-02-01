@@ -1,13 +1,15 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Windows.Input;
-using WpfNavigationApp.Contracts.Services;
-using WpfNavigationApp.Contracts.ViewModels;
+using WpfNavigationApp.Contracts;
+using WpfNavigationApp.Helpers;
 using WpfNavigationApp.Services;
 
 namespace WpfNavigationApp.ViewModels
 {
-    public class Page3ViewModel : Observable, INavigationAware, IDisposable
+    public class Page3ViewModel : ObservableRecipient, INavigationAware, IDisposable
     {
         private readonly ILogger<Page3ViewModel> logger;
         private readonly INavigationService navigationService;

@@ -1,7 +1,7 @@
-﻿using WpfApp.Contracts.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using WpfApp.Helpers;
 
 namespace WpfApp.Services
 {

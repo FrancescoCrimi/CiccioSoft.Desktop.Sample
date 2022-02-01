@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using WpfNavigationApp.Contracts.Services;
+using WpfNavigationApp.Contracts;
 using WpfNavigationApp.ViewModels;
 
 namespace WpfNavigationApp.Views

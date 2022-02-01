@@ -1,12 +1,14 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Windows.Input;
-using WpfNavigationApp.Contracts.Services;
+using WpfNavigationApp.Contracts;
 using WpfNavigationApp.Views;
 
 namespace WpfNavigationApp.ViewModels
 {
-    public class ShellViewModel : Observable, IDisposable
+    public class ShellViewModel : ObservableRecipient, IDisposable
     {
         private readonly ILogger<ShellViewModel> logger;
         private readonly INavigationService navigationService;

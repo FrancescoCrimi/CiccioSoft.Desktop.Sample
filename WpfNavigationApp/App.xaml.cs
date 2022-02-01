@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using NLog.Extensions.Logging;
 using System.Windows;
-using WpfNavigationApp.Contracts.Services;
+using WpfNavigationApp.Contracts;
 using WpfNavigationApp.Hosting;
 using WpfNavigationApp.Services;
 using WpfNavigationApp.ViewModels;
