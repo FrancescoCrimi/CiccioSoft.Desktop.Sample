@@ -4,15 +4,15 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace WpfNavigationApp.Hosting
+namespace WpfNavigationMetroApp.Hosting
 {
-    public class WpfAppLifetime : IHostLifetime, IDisposable
+    public class WpfHostLifetime : IHostLifetime, IDisposable
     {
-        private readonly ILogger<WpfAppLifetime> logger;
+        private readonly ILogger<WpfHostLifetime> logger;
         private readonly IHostApplicationLifetime hostApplicationLifetime;
 
-        public WpfAppLifetime(ILogger<WpfAppLifetime> logger,
-                              IHostApplicationLifetime hostApplicationLifetime)
+        public WpfHostLifetime(ILogger<WpfHostLifetime> logger,
+                               IHostApplicationLifetime hostApplicationLifetime)
         {
             this.logger = logger;
             this.hostApplicationLifetime = hostApplicationLifetime;

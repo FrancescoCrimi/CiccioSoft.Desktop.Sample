@@ -28,11 +28,8 @@ namespace FormApp.Hosting
 
         public Task WaitForStartAsync(CancellationToken cancellationToken)
         {
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.ApplicationExit += Application_ApplicationExit;
             logger.LogDebug("WaitForStartAsync: " + GetHashCode().ToString());
+            Application.ApplicationExit += Application_ApplicationExit;
             return Task.CompletedTask;
         }
 

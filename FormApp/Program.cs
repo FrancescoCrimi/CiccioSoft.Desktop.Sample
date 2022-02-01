@@ -16,17 +16,19 @@ namespace FormApp
             await CreateHostBuilder(args).Build().RunAsync();
         }
 
-        private static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWinForms<MainWindow>()
-                .ConfigureServices(ConfigureServices);
+        private static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureServices(ConfigureServices)
+                .ConfigureWinForms<MainWindow>();
+        }
 
         private static void ConfigureServices(HostBuilderContext hostBuilderContext,
                                               IServiceCollection serviceCollection)
         {
             serviceCollection
-                .AddTransient<WindowService>()
-                .AddTransient<DialogService>()
+                .AddSingleton<WindowService>()
+                .AddSingleton<DialogService>()
                 .AddTransient<MainWindow>()
                 .AddTransient<Window1>()
                 .AddTransient<Window2>()

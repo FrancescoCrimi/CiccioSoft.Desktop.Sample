@@ -6,15 +6,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace WpfNavigationMetroApp.Hosting
+namespace WpfNavigationApp.Hosting
 {
-    public class WpfAppHostedService<TWindow> : IHostedService, IDisposable where TWindow : Window
+    public class WpfHostedService<MainWindow> : IHostedService, IDisposable where MainWindow : Window
     {
         private readonly ILogger logger;
         private readonly IServiceProvider _serviceProvider;
 
-        public WpfAppHostedService(ILogger<WpfAppHostedService<TWindow>> logger,
-                                   IServiceProvider serviceProvider)
+        public WpfHostedService(ILogger<WpfHostedService<MainWindow>> logger,
+                                IServiceProvider serviceProvider)
         {
             this.logger = logger;
             _serviceProvider = serviceProvider;
@@ -24,7 +24,7 @@ namespace WpfNavigationMetroApp.Hosting
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             logger.LogDebug("StartAsync: " + GetHashCode().ToString());
-            var shellWindow = _serviceProvider.GetService<TWindow>();
+            var shellWindow = _serviceProvider.GetService<MainWindow>();
             shellWindow.Show();
             await Task.CompletedTask;
         }

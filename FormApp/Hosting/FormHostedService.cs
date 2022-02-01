@@ -8,12 +8,12 @@ using System.Windows.Forms;
 
 namespace FormApp.Hosting
 {
-    public class FormHostedService<TForm> : IHostedService, IDisposable where TForm : Form
+    public class FormHostedService<MainWindow> : IHostedService, IDisposable where MainWindow : Form
     {
         private readonly ILogger logger;
         private readonly IServiceScopeFactory serviceScopeFactory;
 
-        public FormHostedService(ILogger<FormHostedService<TForm>> logger,
+        public FormHostedService(ILogger<FormHostedService<MainWindow>> logger,
                                  IServiceScopeFactory serviceScopeFactory)
         {
             this.logger = logger;
@@ -21,14 +21,16 @@ namespace FormApp.Hosting
             logger.LogDebug("Created: " + GetHashCode().ToString());
         }
 
-        public Task StartAsync(CancellationToken cancellationToken)
+        public  Task StartAsync(CancellationToken cancellationToken)
         {
-            var scope = serviceScopeFactory.CreateScope();
-            var window = scope.ServiceProvider.GetService<TForm>();
-
-            Application.Run(window);
             logger.LogDebug("StartAsync: " + GetHashCode().ToString());
-            return Task.CompletedTask;
+
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            var scope = serviceScopeFactory.CreateScope();
+            var window = scope.ServiceProvider.GetService<MainWindow>();
+            return Task.Run(() => Application.Run(window));
         }
 
         public async Task StopAsync(CancellationToken cancellationToken)

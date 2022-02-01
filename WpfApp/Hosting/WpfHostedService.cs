@@ -8,13 +8,13 @@ using WpfApp.Services;
 
 namespace WpfApp.Hosting
 {
-    public class WpfAppHostedService<TWindow> : IHostedService, IDisposable where TWindow : Window
+    public class WpfHostedService<MainWindow> : IHostedService, IDisposable where MainWindow : Window
     {
         private readonly ILogger logger;
         private readonly WindowService windowService;
 
-        public WpfAppHostedService(ILogger<WpfAppHostedService<TWindow>> logger,
-                                   WindowService windowService)
+        public WpfHostedService(ILogger<WpfHostedService<MainWindow>> logger,
+                                WindowService windowService)
         {
             this.logger = logger;
             this.windowService = windowService;
@@ -23,7 +23,7 @@ namespace WpfApp.Hosting
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            windowService.OpenWindow(typeof(TWindow));
+            windowService.OpenWindow(typeof(MainWindow));
             logger.LogDebug("StartAsync: " + GetHashCode().ToString());
             return Task.CompletedTask;
         }

@@ -6,13 +6,13 @@ namespace WpfNavigationMetroApp.Hosting
 {
     public static class WpfHostBuilderExtensions
     {
-        public static IHostBuilder ConfigureWPF<TWindow>(this IHostBuilder hostBuilder) where TWindow : Window
+        public static IHostBuilder ConfigureWpfHost<MainWindow>(this IHostBuilder hostBuilder) where MainWindow : Window
         {
             return hostBuilder
                 .ConfigureServices((hostBuilderContext, serviceCollection) =>
                     serviceCollection
-                        .AddSingleton<IHostLifetime, WpfAppLifetime>()
-                        .AddHostedService<WpfAppHostedService<TWindow>>());
+                        .AddSingleton<IHostLifetime, WpfHostLifetime>()
+                        .AddHostedService<WpfHostedService<MainWindow>>());
         }
     }
 }

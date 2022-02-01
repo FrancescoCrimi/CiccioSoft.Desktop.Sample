@@ -1,9 +1,8 @@
 ﻿<Application x:Class="WpfNavigationApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             Startup="OnStartup"
-             Exit="OnExit"
-             DispatcherUnhandledException="OnDispatcherUnhandledException">
+             Startup="OnStartup">
     <Application.Resources>
+
     </Application.Resources>
 </Application>

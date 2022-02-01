@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Hosting;
 using NLog.Extensions.Logging;
 using System.Windows;
-using System.Windows.Threading;
 using WpfApp.Hosting;
 using WpfApp.Services;
 using WpfApp.ViewModels;
@@ -15,19 +14,18 @@ namespace WpfApp
         private async void OnStartup(object sender, StartupEventArgs e) =>
             await CreateHostBuilder(e.Args).Build().RunAsync();
 
-        private IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-            .ConfigureWPF<MainWindow>()
-            .ConfigureLogging((hostBuilderContext, loggingBuilder) =>
-                loggingBuilder.AddNLog(hostBuilderContext.Configuration))
-            .ConfigureServices(ConfigureServices);
-
-        private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e) { }
-
-        private void OnExit(object sender, ExitEventArgs e) { }
+        private IHostBuilder CreateHostBuilder(string[] args)
+        {
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureLogging((hostBuilderContext, loggingBuilder) =>
+                    loggingBuilder.AddNLog(hostBuilderContext.Configuration))
+                .ConfigureServices(ConfigureServices)
+                .ConfigureWpfHost<MainWindow>();
+        }
 
         private void ConfigureServices(HostBuilderContext hostBuilderContext,
-                                       IServiceCollection serviceCollection) =>
+                                       IServiceCollection serviceCollection)
+        {
             serviceCollection
                 .AddSingleton<WindowService>()
                 .AddScoped<DialogService>()
@@ -44,5 +42,6 @@ namespace WpfApp
                 .AddTransient<Window5ViewModel>()
                 .AddTransient<Window5>()
                 .AddScoped<MyService>();
+        }
     }
 }
