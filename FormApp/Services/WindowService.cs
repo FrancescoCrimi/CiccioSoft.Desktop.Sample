@@ -21,8 +21,8 @@ namespace FormApp.Services
         public void OpenWindow<TWindow>() where TWindow : Form
         {
             var scope = serviceScopeFactory.CreateScope();
-            var window = scope.ServiceProvider.GetService<TWindow>();
-            void WindowDisposed(object sender, EventArgs e)
+            var window = scope.ServiceProvider.GetRequiredService<TWindow>();
+            void WindowDisposed(object? sender, EventArgs e)
             {
                 window.Disposed -= WindowDisposed;
                 scope.Dispose();

@@ -20,7 +20,7 @@ namespace FormApp.Services
 
         public DialogResult OpenDialog<TWindow>() where TWindow : Form
         {
-            var win = serviceProvider.GetService<TWindow>();
+            var win = serviceProvider.GetRequiredService<TWindow>();
             return win.ShowDialog();
         }
 

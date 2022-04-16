@@ -1,21 +1,26 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using FormApp.Views;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FormApp.Hosting
+namespace FormApp
 {
     public class FormHostLifetime : IHostLifetime, IDisposable
     {
         private readonly ILogger<FormHostLifetime> logger;
+        private readonly IServiceScopeFactory serviceScopeFactory;
         private readonly IHostApplicationLifetime hostApplicationLifetime;
 
         public FormHostLifetime(ILogger<FormHostLifetime> logger,
+                                IServiceScopeFactory serviceScopeFactory,
                                 IHostApplicationLifetime hostApplicationLifetime)
         {
             this.logger = logger;
+            this.serviceScopeFactory = serviceScopeFactory;
             this.hostApplicationLifetime = hostApplicationLifetime;
             logger.LogDebug("Created: " + GetHashCode().ToString());
         }
@@ -29,13 +34,27 @@ namespace FormApp.Hosting
         public Task WaitForStartAsync(CancellationToken cancellationToken)
         {
             logger.LogDebug("WaitForStartAsync: " + GetHashCode().ToString());
-            Application.ApplicationExit += Application_ApplicationExit;
+            Application.ApplicationExit += ApplicationExit;
+
+            var threadfrm = new Thread(StartForm);
+            threadfrm.SetApartmentState(ApartmentState.STA);
+            threadfrm.Name = "StartForm Thread";
+            threadfrm.Start();
+
             return Task.CompletedTask;
         }
 
-        private void Application_ApplicationExit(object sender, EventArgs e)
+        private void StartForm()
         {
-            Application.ApplicationExit -= Application_ApplicationExit;
+            ApplicationConfiguration.Initialize();
+            var scope = serviceScopeFactory.CreateScope();
+            var window = scope.ServiceProvider.GetService<MainWindow>();
+            Application.Run(window);
+        }
+
+        private void ApplicationExit(object? sender, EventArgs e)
+        {
+            Application.ApplicationExit -= ApplicationExit;
             hostApplicationLifetime.StopApplication();
         }
 
