@@ -14,8 +14,8 @@ namespace WpfNavigationApp.ViewModels
         private readonly ILogger<Page4ViewModel> logger;
         private readonly INavigationService navigationService;
         private readonly MyService myService;
-        private RelayCommand<Type> newNavigationCommand;
-        private RelayCommand<Type> navigateCommand;
+        private RelayCommand<Type>? newNavigationCommand;
+        private RelayCommand<Type>? navigateCommand;
 
         public Page4ViewModel(ILogger<Page4ViewModel> logger,
                               INavigationService navigationService,

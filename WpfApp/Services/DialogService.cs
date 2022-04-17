@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using WpfApp.Helpers;
 
@@ -17,13 +18,12 @@ namespace WpfApp.Services
             logger.LogDebug("Created: " + GetHashCode().ToString());
         }
 
-        public bool? OpenDialog(Type windowType, object parameter = null)
+        public bool? OpenDialog(Type? windowType, object? parameter = null)
         {
-            if (windowType.IsAssignableTo(typeof(System.Windows.Window)))
+            if (windowType!.IsAssignableTo(typeof(System.Windows.Window)))
             {
-
-                var window = (System.Windows.Window)serviceProvider.GetService(windowType);
-                if (window?.DataContext is INavigationAware navigationAware)
+                var window = (System.Windows.Window)serviceProvider.GetRequiredService(windowType);
+                if (window.DataContext is INavigationAware navigationAware)
                 {
                     navigationAware.OnNavigatedTo(parameter);
                 }

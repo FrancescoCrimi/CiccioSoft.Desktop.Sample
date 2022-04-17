@@ -12,10 +12,10 @@ namespace WpfNavigationMetroApp.Services
     {
         private readonly ILogger<NavigationService> logger;
         private readonly IServiceScopeFactory scopeFactory;
-        private IServiceScope scope;
-        private IServiceScope oldScope;
-        private Frame _frame;
-        private object _lastParameterUsed;
+        private IServiceScope? scope;
+        private IServiceScope? oldScope;
+        private Frame? _frame;
+        private object? _lastParameterUsed;
         private bool clearNavigation;
 
         public NavigationService(ILogger<NavigationService> logger,
@@ -26,13 +26,13 @@ namespace WpfNavigationMetroApp.Services
             logger.LogDebug("Created: " + GetHashCode().ToString());
         }
 
-        public event EventHandler Navigated;
+        public event EventHandler? Navigated;
 
-        public bool CanGoBack => _frame.CanGoBack;
+        public bool CanGoBack => _frame!.CanGoBack;
 
         public void GoBack()
         {
-            if (_frame.CanGoBack)
+            if (_frame!.CanGoBack)
             {
                 var vmBeforeNavigation = _frame.GetDataContext();
                 _frame.GoBack();
@@ -52,9 +52,9 @@ namespace WpfNavigationMetroApp.Services
             }
         }
 
-        public bool NavigateTo(Type pageType, object parameter = null, bool clearNavigation = false)
+        public bool NavigateTo(Type? pageType, object? parameter = null, bool clearNavigation = false)
         {
-            if (_frame.Content?.GetType() != pageType || (parameter != null && !parameter.Equals(_lastParameterUsed)))
+            if (_frame!.Content?.GetType() != pageType || (parameter != null && !parameter.Equals(_lastParameterUsed)))
             {
                 if (clearNavigation)
                 {
@@ -68,7 +68,7 @@ namespace WpfNavigationMetroApp.Services
                     scope = scopeFactory.CreateScope();
                 }
 
-                var page = scope.ServiceProvider.GetService(pageType);
+                var page = scope.ServiceProvider.GetRequiredService(pageType!);
                 var navigated = _frame.Navigate(page, parameter);
                 if (navigated)
                 {
@@ -111,7 +111,7 @@ namespace WpfNavigationMetroApp.Services
 
         public void Dispose()
         {
-            _frame.Navigated -= OnNavigated;
+            _frame!.Navigated -= OnNavigated;
             if (scope != null)
             {
                 scope.Dispose();

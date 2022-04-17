@@ -12,8 +12,8 @@ namespace WpfNavigationApp.ViewModels
     {
         private readonly ILogger<ShellViewModel> logger;
         private readonly INavigationService navigationService;
-        private RelayCommand<Type> menuItemCommand;
-        private ICommand loadedCommand;
+        private RelayCommand<Type>? menuItemCommand;
+        private ICommand? loadedCommand;
 
         public ShellViewModel(ILogger<ShellViewModel> logger,
                               INavigationService navigationService)

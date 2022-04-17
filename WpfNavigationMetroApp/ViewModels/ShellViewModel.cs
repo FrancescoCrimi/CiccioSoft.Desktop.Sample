@@ -13,10 +13,10 @@ namespace WpfNavigationMetroApp.ViewModels
         private readonly ILogger<ShellViewModel> logger;
         private readonly INavigationService _navigationService;
         private readonly IRightPaneService _rightPaneService;
-        private RelayCommand<Type> _menuItemCommand;
-        private RelayCommand<Type> _menuOptionsItemCommand;
-        private RelayCommand _goBackCommand;
-        private ICommand _loadedCommand;
+        private RelayCommand<Type>? _menuItemCommand;
+        private RelayCommand<Type>? _menuOptionsItemCommand;
+        private RelayCommand? _goBackCommand;
+        private ICommand? _loadedCommand;
 
         public ShellViewModel(ILogger<ShellViewModel> logger,
                               INavigationService navigationService,
@@ -46,7 +46,7 @@ namespace WpfNavigationMetroApp.ViewModels
             => _menuItemCommand ??= new RelayCommand<Type>(type
                 => _navigationService.NavigateTo(type, null, true));
 
-        private void OnNavigated(object sender, EventArgs e)
+        private void OnNavigated(object? sender, EventArgs e)
         {
             //GoBackCommand.OnCanExecuteChanged();
             GoBackCommand.NotifyCanExecuteChanged();

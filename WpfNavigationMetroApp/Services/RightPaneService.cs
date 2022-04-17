@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Windows.Controls;
@@ -12,9 +13,9 @@ namespace WpfNavigationMetroApp.Services
     {
         private readonly ILogger<RightPaneService> logger;
         private readonly IServiceProvider _serviceProvider;
-        private Frame _frame;
-        private object _lastParameterUsed;
-        private SplitView _splitView;
+        private Frame? _frame;
+        private object? _lastParameterUsed;
+        private SplitView? _splitView;
 
         public RightPaneService(ILogger<RightPaneService> logger,
                                 IServiceProvider serviceProvider)
@@ -24,9 +25,9 @@ namespace WpfNavigationMetroApp.Services
             logger.LogDebug("Created: " + GetHashCode().ToString());
         }
 
-        public event EventHandler PaneOpened;
+        public event EventHandler? PaneOpened;
 
-        public event EventHandler PaneClosed;
+        public event EventHandler? PaneClosed;
 
         public void Initialize(Frame rightPaneFrame, SplitView splitView)
         {
@@ -36,11 +37,11 @@ namespace WpfNavigationMetroApp.Services
             _splitView.PaneClosed += OnPaneClosed;
         }
 
-        public void OpenInRightPane(Type pageType, object parameter = null)
+        public void OpenInRightPane(Type? pageType, object? parameter = null)
         {
-            if (_frame.Content?.GetType() != pageType || (parameter != null && !parameter.Equals(_lastParameterUsed)))
+            if (_frame!.Content?.GetType() != pageType || (parameter != null && !parameter.Equals(_lastParameterUsed)))
             {
-                var page = _serviceProvider.GetService(pageType);
+                var page = _serviceProvider.GetRequiredService(pageType!);
                 var navigated = _frame.Navigate(page, parameter);
                 if (navigated)
                 {
@@ -52,7 +53,7 @@ namespace WpfNavigationMetroApp.Services
                     }
                 }
             }
-            _splitView.IsPaneOpen = true;
+            _splitView!.IsPaneOpen = true;
             PaneOpened?.Invoke(_splitView, EventArgs.Empty);
         }
 
@@ -72,13 +73,13 @@ namespace WpfNavigationMetroApp.Services
             }
         }
 
-        private void OnPaneClosed(object sender, EventArgs e)
+        private void OnPaneClosed(object? sender, EventArgs e)
             => PaneClosed?.Invoke(sender, e);
 
         public void Dispose()
         {
-            _frame.Navigated -= OnNavigated;
-            _splitView.PaneClosed -= OnPaneClosed;
+            _frame!.Navigated -= OnNavigated;
+            _splitView!.PaneClosed -= OnPaneClosed;
             logger.LogDebug("Disposed: " + GetHashCode().ToString());
         }
     }

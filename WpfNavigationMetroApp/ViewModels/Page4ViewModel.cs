@@ -15,10 +15,10 @@ namespace WpfNavigationMetroApp.ViewModels
         private readonly ILogger<Page4ViewModel> logger;
         private readonly INavigationService navigationService;
         private readonly MyService myService;
-        private RelayCommand command2;
-        private RelayCommand command1;
-        private RelayCommand command3;
-        private RelayCommand command4;
+        private RelayCommand? command2;
+        private RelayCommand? command1;
+        private RelayCommand? command3;
+        private RelayCommand? command4;
 
         public Page4ViewModel(ILogger<Page4ViewModel> logger,
                               INavigationService navigationService,

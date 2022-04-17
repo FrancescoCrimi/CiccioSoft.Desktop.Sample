@@ -13,8 +13,8 @@ namespace WpfApp.ViewModels
         private readonly MyService myService;
         private readonly WindowService windowManagerService;
         private readonly DialogService windowDialogService;
-        private RelayCommand<Type> openWindowCommand;
-        private RelayCommand<Type> openDialogCommand;
+        private RelayCommand<Type>? openWindowCommand;
+        private RelayCommand<Type>? openDialogCommand;
 
         public MainWindowViewModel(ILogger<MainWindowViewModel> logger,
                                    MyService myService,

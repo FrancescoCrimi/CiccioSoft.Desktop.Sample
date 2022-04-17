@@ -11,7 +11,7 @@ namespace WpfNavigationMetroApp.Contracts
 
         void Initialize(Frame shellFrame);
 
-        bool NavigateTo(Type pageType, object parameter = null, bool clearNavigation = false);
+        bool NavigateTo(Type? pageType, object? parameter = null, bool clearNavigation = false);
 
         void GoBack();
     }

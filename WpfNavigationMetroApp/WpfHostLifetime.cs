@@ -1,22 +1,36 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using WpfNavigationMetroApp.Views;
 
-namespace WpfNavigationApp.Hosting
+namespace WpfNavigationMetroApp
 {
     public class WpfHostLifetime : IHostLifetime, IDisposable
     {
         private readonly ILogger<WpfHostLifetime> logger;
+        private readonly IServiceProvider serviceProvider;
         private readonly IHostApplicationLifetime hostApplicationLifetime;
 
         public WpfHostLifetime(ILogger<WpfHostLifetime> logger,
+                               IServiceProvider serviceProvider,
                                IHostApplicationLifetime hostApplicationLifetime)
         {
             this.logger = logger;
+            this.serviceProvider = serviceProvider;
             this.hostApplicationLifetime = hostApplicationLifetime;
             logger.LogDebug("Created: " + GetHashCode().ToString());
+        }
+
+        public Task WaitForStartAsync(CancellationToken cancellationToken)
+        {
+            System.Windows.Application.Current.Exit += ApplicationExit;
+            var shellWindow = serviceProvider.GetRequiredService<ShellWindow>();
+            shellWindow.Show();
+            logger.LogDebug("WaitForStartAsync: " + GetHashCode().ToString());
+            return Task.CompletedTask;
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
@@ -25,16 +39,9 @@ namespace WpfNavigationApp.Hosting
             return Task.CompletedTask;
         }
 
-        public Task WaitForStartAsync(CancellationToken cancellationToken)
-        {
-            logger.LogDebug("WaitForStartAsync: " + GetHashCode().ToString());
-            App.Current.Exit += ApplicationExit;
-            return Task.CompletedTask;
-        }
-
         private void ApplicationExit(object sender, System.Windows.ExitEventArgs e)
         {
-            App.Current.Exit -= ApplicationExit;
+            System.Windows.Application.Current.Exit -= ApplicationExit;
             hostApplicationLifetime.StopApplication();
         }
 

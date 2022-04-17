@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Hosting;
 using NLog.Extensions.Logging;
 using System.Windows;
-using WpfApp.Hosting;
 using WpfApp.Services;
 using WpfApp.ViewModels;
 using WpfApp.Views;
@@ -19,29 +18,31 @@ namespace WpfApp
             return Host.CreateDefaultBuilder(args)
                 .ConfigureLogging((hostBuilderContext, loggingBuilder) =>
                     loggingBuilder.AddNLog(hostBuilderContext.Configuration))
-                .ConfigureServices(ConfigureServices)
-                .ConfigureWpfHost<MainWindow>();
+                .ConfigureServices((hostBuilderContext, serviceCollection) =>
+                {
+                    serviceCollection
+                        .AddSingleton<IHostLifetime, WpfHostLifetime>()
+                        .AddSingleton<WindowService>()
+                        .AddScoped<DialogService>()
+                        .AddTransient<MainWindowViewModel>()
+                        .AddTransient<MainWindow>()
+                        .AddTransient<Window1ViewModel>()
+                        .AddTransient<Window1>()
+                        .AddTransient<Window2ViewModel>()
+                        .AddTransient<Window2>()
+                        .AddTransient<Window3ViewModel>()
+                        .AddTransient<Window3>()
+                        .AddTransient<Window4ViewModel>()
+                        .AddTransient<Window4>()
+                        .AddTransient<Window5ViewModel>()
+                        .AddTransient<Window5>()
+                        .AddScoped<MyService>();
+                });
         }
 
-        private void ConfigureServices(HostBuilderContext hostBuilderContext,
-                                       IServiceCollection serviceCollection)
-        {
-            serviceCollection
-                .AddSingleton<WindowService>()
-                .AddScoped<DialogService>()
-                .AddTransient<MainWindowViewModel>()
-                .AddTransient<MainWindow>()
-                .AddTransient<Window1ViewModel>()
-                .AddTransient<Window1>()
-                .AddTransient<Window2ViewModel>()
-                .AddTransient<Window2>()
-                .AddTransient<Window3ViewModel>()
-                .AddTransient<Window3>()
-                .AddTransient<Window4ViewModel>()
-                .AddTransient<Window4>()
-                .AddTransient<Window5ViewModel>()
-                .AddTransient<Window5>()
-                .AddScoped<MyService>();
-        }
+        //private void ConfigureServices(HostBuilderContext hostBuilderContext,
+        //                               IServiceCollection serviceCollection)
+        //{
+        //}
     }
 }

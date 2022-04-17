@@ -3,25 +3,31 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using WpfApp.Services;
+using WpfApp.Views;
 
-namespace WpfApp.Hosting
+namespace WpfApp
 {
     public class WpfHostLifetime : IHostLifetime, IDisposable
     {
         private readonly ILogger<WpfHostLifetime> logger;
+        private readonly WindowService windowService;
         private readonly IHostApplicationLifetime hostApplicationLifetime;
 
         public WpfHostLifetime(ILogger<WpfHostLifetime> logger,
+                               WindowService windowService,
                                IHostApplicationLifetime hostApplicationLifetime)
         {
             this.logger = logger;
+            this.windowService = windowService;
             this.hostApplicationLifetime = hostApplicationLifetime;
             logger.LogDebug("Created: " + GetHashCode().ToString());
         }
 
         public Task WaitForStartAsync(CancellationToken cancellationToken)
         {
-            App.Current.Exit += ApplicationExit;
+            System.Windows.Application.Current.Exit += ApplicationExit;
+            windowService.OpenWindow(typeof(MainWindow));
             logger.LogDebug("WaitForStartAsync: " + GetHashCode().ToString());
             return Task.CompletedTask;
         }
@@ -34,7 +40,7 @@ namespace WpfApp.Hosting
 
         private void ApplicationExit(object sender, System.Windows.ExitEventArgs e)
         {
-            App.Current.Exit -= ApplicationExit;
+            System.Windows.Application.Current.Exit -= ApplicationExit;
             hostApplicationLifetime.StopApplication();
         }
 

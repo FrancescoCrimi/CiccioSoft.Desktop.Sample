@@ -18,16 +18,16 @@ namespace WpfApp.Services
             logger.LogDebug("Created: " + GetHashCode().ToString());
         }
 
-        public void OpenWindow(Type windowType, object parameter = null)
+        public void OpenWindow(Type? windowType, object? parameter = null)
         {
-            if (windowType.IsAssignableTo(typeof(System.Windows.Window)))
+            if (windowType!.IsAssignableTo(typeof(System.Windows.Window)))
             {
                 var scope = serviceScopeFactory.CreateScope();
-                var window = (System.Windows.Window)scope.ServiceProvider.GetService(windowType);
+                var window = (System.Windows.Window)scope.ServiceProvider.GetRequiredService(windowType);
                 window.Closed += OnWindowClosed;
-                void OnWindowClosed(object sender, EventArgs e)
+                void OnWindowClosed(object? sender, EventArgs e)
                 {
-                    scope.Dispose();
+                    scope!.Dispose();
                     scope = null;
                     window.Closed -= OnWindowClosed;
                 }

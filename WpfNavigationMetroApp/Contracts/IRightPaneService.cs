@@ -10,7 +10,7 @@ namespace WpfNavigationMetroApp.Contracts
 
         event EventHandler PaneClosed;
 
-        void OpenInRightPane(Type pageType, object parameter = null);
+        void OpenInRightPane(Type? pageType, object? parameter = null);
 
         void Initialize(Frame rightPaneFrame, SplitView splitView);
     }
