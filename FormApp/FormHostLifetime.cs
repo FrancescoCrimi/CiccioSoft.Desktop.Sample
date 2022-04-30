@@ -11,30 +11,38 @@ namespace FormApp
 {
     public class FormHostLifetime : IHostLifetime, IDisposable
     {
-        private readonly ILogger<FormHostLifetime> logger;
+        private readonly ILogger logger;
+        private readonly IHostEnvironment environment;
+        private readonly IHostApplicationLifetime applicationLifetime;
         private readonly IServiceScopeFactory serviceScopeFactory;
-        private readonly IHostApplicationLifetime hostApplicationLifetime;
+        private CancellationTokenRegistration applicationStartedRegistration;
+        private CancellationTokenRegistration applicationStoppingRegistration;
 
-        public FormHostLifetime(ILogger<FormHostLifetime> logger,
-                                IServiceScopeFactory serviceScopeFactory,
-                                IHostApplicationLifetime hostApplicationLifetime)
+        public FormHostLifetime(ILoggerFactory loggerFactory,
+                                IHostEnvironment environment,
+                                IHostApplicationLifetime applicationLifetime,            
+                                IServiceScopeFactory serviceScopeFactory)
         {
-            this.logger = logger;
+            logger = loggerFactory.CreateLogger("Microsoft.Hosting.Lifetime");
+            this.environment = environment;
+            this.applicationLifetime = applicationLifetime;
             this.serviceScopeFactory = serviceScopeFactory;
-            this.hostApplicationLifetime = hostApplicationLifetime;
-            logger.LogDebug("Created: " + GetHashCode().ToString());
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            logger.LogDebug("StopAsync: " + GetHashCode().ToString());
-            return Task.CompletedTask;
         }
 
         public Task WaitForStartAsync(CancellationToken cancellationToken)
         {
-            logger.LogDebug("WaitForStartAsync: " + GetHashCode().ToString());
-            Application.ApplicationExit += ApplicationExit;
+            applicationStartedRegistration = applicationLifetime.ApplicationStarted.Register(state =>
+            {
+                ((FormHostLifetime)state!).OnApplicationStarted();
+            },
+            this);
+            applicationStoppingRegistration = applicationLifetime.ApplicationStopping.Register(state =>
+            {
+                ((FormHostLifetime)state!).OnApplicationStopping();
+            },
+            this);
+
+            RegisterShutdownHandlers();
 
             var threadfrm = new Thread(StartForm);
             threadfrm.SetApartmentState(ApartmentState.STA);
@@ -42,6 +50,28 @@ namespace FormApp
             threadfrm.Start();
 
             return Task.CompletedTask;
+        }
+
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            return Task.CompletedTask;
+        }
+
+        private void OnApplicationStarted()
+        {
+            logger.LogInformation("Application started.");
+            logger.LogInformation("Hosting environment: {envName}", environment.EnvironmentName);
+            logger.LogInformation("Content root path: {contentRoot}", environment.ContentRootPath);
+        }
+
+        private void OnApplicationStopping()
+        {
+            logger.LogInformation("Application is shutting down...");
+        }
+
+        private void RegisterShutdownHandlers()
+        {
+            Application.ApplicationExit += ApplicationExit;
         }
 
         private void StartForm()
@@ -54,13 +84,19 @@ namespace FormApp
 
         private void ApplicationExit(object? sender, EventArgs e)
         {
+            applicationLifetime.StopApplication();
+            UnregisterShutdownHandlers();
+            applicationStartedRegistration.Dispose();
+            applicationStoppingRegistration.Dispose();
+        }
+
+        private void UnregisterShutdownHandlers()
+        {
             Application.ApplicationExit -= ApplicationExit;
-            hostApplicationLifetime.StopApplication();
         }
 
         public void Dispose()
         {
-            logger.LogDebug("Disposed: " + GetHashCode().ToString());
         }
     }
 }

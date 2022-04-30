@@ -10,44 +10,82 @@ namespace WpfNavigationApp
 {
     public class WpfHostLifetime : IHostLifetime, IDisposable
     {
-        private readonly ILogger<WpfHostLifetime> logger;
+        private readonly ILogger logger;
+        private readonly IHostEnvironment environment;
+        private readonly IHostApplicationLifetime applicationLifetime;
         private readonly IServiceProvider serviceProvider;
-        private readonly IHostApplicationLifetime hostApplicationLifetime;
+        private CancellationTokenRegistration applicationStartedRegistration;
+        private CancellationTokenRegistration applicationStoppingRegistration;
 
-        public WpfHostLifetime(ILogger<WpfHostLifetime> logger,
-                               IServiceProvider serviceProvider,
-                               IHostApplicationLifetime hostApplicationLifetime)
+        public WpfHostLifetime(ILoggerFactory loggerFactory,
+                               IHostEnvironment environment,
+                               IHostApplicationLifetime applicationLifetime,
+                               IServiceProvider serviceProvider)
         {
-            this.logger = logger;
+            logger = loggerFactory.CreateLogger("Microsoft.Hosting.Lifetime");
+            this.environment = environment;
+            this.applicationLifetime = applicationLifetime;
             this.serviceProvider = serviceProvider;
-            this.hostApplicationLifetime = hostApplicationLifetime;
-            logger.LogDebug("Created: " + GetHashCode().ToString());
         }
 
         public Task WaitForStartAsync(CancellationToken cancellationToken)
         {
-            System.Windows.Application.Current.Exit += ApplicationExit;
+            applicationStartedRegistration = applicationLifetime.ApplicationStarted.Register(state =>
+            {
+                ((WpfHostLifetime)state!).OnApplicationStarted();
+            },
+            this);
+            applicationStoppingRegistration = applicationLifetime.ApplicationStopping.Register(state =>
+            {
+                ((WpfHostLifetime)state!).OnApplicationStopping();
+            },
+            this);
+
+            RegisterShutdownHandlers();
+
             var shellWindow = serviceProvider.GetRequiredService<ShellWindow>();
             shellWindow.Show();
-            logger.LogDebug("WaitForStartAsync: " + GetHashCode().ToString());
+
             return Task.CompletedTask;
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            logger.LogDebug("StopAsync: " + GetHashCode().ToString());
             return Task.CompletedTask;
+        }
+
+        private void OnApplicationStarted()
+        {
+            logger.LogInformation("Application started.");
+            logger.LogInformation("Hosting environment: {envName}", environment.EnvironmentName);
+            logger.LogInformation("Content root path: {contentRoot}", environment.ContentRootPath);
+        }
+
+        private void OnApplicationStopping()
+        {
+            logger.LogInformation("Application is shutting down...");
+        }
+
+        private void RegisterShutdownHandlers()
+        {
+            System.Windows.Application.Current.Exit += ApplicationExit;
         }
 
         private void ApplicationExit(object sender, System.Windows.ExitEventArgs e)
         {
+            applicationLifetime.StopApplication();
+            UnregisterShutdownHandlers();
+            applicationStartedRegistration.Dispose();
+            applicationStoppingRegistration.Dispose();
+        }
+
+        private void UnregisterShutdownHandlers()
+        {
             System.Windows.Application.Current.Exit -= ApplicationExit;
-            hostApplicationLifetime.StopApplication();
         }
 
         public void Dispose()
         {
-            logger.LogDebug("Disposed: " + GetHashCode().ToString());
         }
     }
 }
