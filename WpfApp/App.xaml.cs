@@ -10,8 +10,10 @@ namespace WpfApp
 {
     public partial class App : Application
     {
-        private async void OnStartup(object sender, StartupEventArgs e) =>
-            await CreateHostBuilder(e.Args).Build().RunAsync();
+        private async void OnStartup(object sender, StartupEventArgs e)
+        {
+            await CreateHostBuilder(e.Args).StartAsync();
+        }
 
         private IHostBuilder CreateHostBuilder(string[] args)
         {
@@ -39,10 +41,5 @@ namespace WpfApp
                         .AddScoped<MyService>();
                 });
         }
-
-        //private void ConfigureServices(HostBuilderContext hostBuilderContext,
-        //                               IServiceCollection serviceCollection)
-        //{
-        //}
     }
 }

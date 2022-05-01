@@ -11,8 +11,10 @@ namespace WpfNavigationMetroApp
 {
     public partial class App : Application
     {
-        private async void OnStartup(object sender, StartupEventArgs e) =>
-            await CreateHostBuilder(e.Args).Build().RunAsync();
+        private async void OnStartup(object sender, StartupEventArgs e)
+        {
+            await CreateHostBuilder(e.Args).StartAsync();
+        }
 
         private IHostBuilder CreateHostBuilder(string[] args)
         {
